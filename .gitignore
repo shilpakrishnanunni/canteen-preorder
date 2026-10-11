@@ -1,0 +1,5 @@
+/node_modules
+package-lock.json
+canteen-preorder/dist
+canteen-preorder/.env
+canteen-preorder/node_modules

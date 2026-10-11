@@ -1,0 +1,12 @@
+{
+  "name": "canteen-preorder-workspace",
+  "private": true,
+  "workspaces": [
+    "canteen-preorder"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace canteen-preorder",
+    "build": "npm run build --workspace canteen-preorder",
+    "preview": "npm run preview --workspace canteen-preorder"
+  }
+}
