@@ -1,45 +1,29 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import MenuPage from "../pages/MenuPage.jsx";
 
-import PublicLayout from '../layouts/PublicLayout.jsx';
-import CustomerLayout from '../layouts/CustomerLayout.jsx';
-import StaffLayout from '../layouts/StaffLayout.jsx';
+const PlaceholderPage = ({ title, description }) => (
+  <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-16">
+    <p className="eyebrow">CANTEEN</p>
+    <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink">{title}</h1>
+    <p className="mt-3 max-w-xl text-base leading-7 text-muted">{description}</p>
+    <a href="/" className="mt-8 inline-flex w-fit items-center rounded-full bg-forest px-5 py-3 text-sm font-semibold text-white transition hover:bg-forest-dark">Back to menu</a>
+  </main>
+);
 
-import MenuPage from '../features/menu/pages/MenuPage.jsx';
-import TrackPage from '../features/orders/pages/TrackPage.jsx';
-
-import StaffLoginPage from '../features/auth/pages/StaffLoginPage.jsx';
-import RequireStaffAuth from '../features/auth/components/RequireStaffAuth.jsx';
-
-import StaffDashboardPage from '../features/staff/pages/StaffDashboardPage.jsx';
-import OrderManagementPage from '../features/staff/pages/OrderManagementPage.jsx';
-import MenuManagementPage from '../features/staff/pages/MenuManagementPage.jsx';
-
-export default function AppRoutes() {
-  return (
+const AppRoutes = () => (
+  <BrowserRouter>
     <Routes>
-      {/* Public routes */}
-      <Route element={<PublicLayout />}>
-        <Route path="/" element={<MenuPage />} />
-        <Route path="/track/:token" element={<TrackPage />} />
-        <Route path="/staff/login" element={<StaffLoginPage />} />
-      </Route>
-
-      {/* Customer routes */}
-      <Route path="/customer" element={<CustomerLayout />}>
-        {/* Customer-specific routes go here */}
-      </Route>
-
-      {/* Protected staff routes */}
-      <Route element={<RequireStaffAuth />}>
-        <Route path="/staff" element={<StaffLayout />}>
-          <Route index element={<StaffDashboardPage />} />
-          <Route path="orders" element={<OrderManagementPage />} />
-          <Route path="menu" element={<MenuManagementPage />} />
-        </Route>
-      </Route>
-
-      {/* Unknown routes */}
+      <Route path="/" element={<MenuPage />} />
+      <Route path="/cart" element={<PlaceholderPage title="Your cart" description="The cart page will be implemented next. Your selections are already saved in this browser." />} />
+      <Route path="/checkout" element={<PlaceholderPage title="Checkout" description="Checkout and order submission will be implemented next." />} />
+      <Route path="/orders/:orderToken" element={<PlaceholderPage title="Track your order" description="Order confirmation and live status details will be implemented next." />} />
+      <Route path="/login" element={<PlaceholderPage title="Staff sign in" description="Staff and admin authentication will be implemented after the student ordering flow." />} />
+      <Route path="/staff" element={<PlaceholderPage title="Staff dashboard" description="Staff order management will be implemented in a later stage." />} />
+      <Route path="/staff/menu" element={<PlaceholderPage title="Menu management" description="Staff menu management will be implemented in a later stage." />} />
+      <Route path="/admin" element={<PlaceholderPage title="Admin dashboard" description="Admin tools will be implemented when their API contracts are available." />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
-  );
-}
+  </BrowserRouter>
+);
+
+export default AppRoutes;
