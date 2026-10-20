@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { ArrowDownRight, ArrowRight, Clock3, Leaf, ShoppingBag, Sparkles } from "lucide-react";
+import { ArrowDownRight, ArrowRight, Clock3, Leaf, Search, ShoppingBag, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getCategories, getMenuItems } from "../api/menu.js";
 import CategoryFilter from "../components/menu/CategoryFilter.jsx";
@@ -66,18 +66,27 @@ const MenuPage = () => {
             </span>
             <span className="leading-none">
               <span className="block text-[15px] font-extrabold tracking-[0.14em] text-ink">CANTEEN</span>
-              <span className="mt-1.5 block text-[10px] font-medium tracking-[0.09em] text-muted">GOOD FOOD. WITHOUT THE WAIT.</span>
+              <span className="mt-1.5 block text-[10px] font-medium tracking-[0.09em] text-muted">GOOD FOOD. GOOD DAY.</span>
             </span>
           </Link>
 
-          <Link to="/cart" className="inline-flex min-h-11 items-center gap-2.5 rounded-full border border-line bg-white px-3.5 text-sm font-semibold text-ink shadow-[0_2px_10px_rgb(32_37_31/3%)] transition hover:border-forest/30 hover:bg-[#fdfefc] sm:px-4">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link
+              to="/track-order"
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-2.5 text-sm font-semibold text-forest transition hover:bg-[#eaf0e6] sm:gap-2 sm:px-3"
+            >
+              <Search size={16} strokeWidth={2} />
+              <span>Track order</span>
+            </Link>
+            <Link to="/cart" className="inline-flex min-h-11 items-center gap-2.5 rounded-full border border-line bg-white px-3.5 text-sm font-semibold text-ink shadow-[0_2px_10px_rgb(32_37_31/3%)] transition hover:border-forest/30 hover:bg-[#fdfefc] sm:px-4">
             <span className="relative grid size-7 place-items-center text-forest">
               <ShoppingBag size={19} strokeWidth={1.8} />
               {totalItems > 0 && <span className="absolute -right-1 -top-1 grid min-w-[17px] place-items-center rounded-full bg-forest px-1 text-[10px] font-bold leading-[17px] text-white">{totalItems > 99 ? "99+" : totalItems}</span>}
             </span>
             <span className="hidden sm:inline">Your order</span>
             <span className="hidden text-muted sm:inline">{formatCurrency(subtotal)}</span>
-          </Link>
+            </Link>
+          </div>
         </div>
       </header>
 
