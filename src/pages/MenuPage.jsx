@@ -66,7 +66,7 @@ const MenuPage = () => {
             </span>
             <span className="leading-none">
               <span className="block text-[15px] font-extrabold tracking-[0.14em] text-ink">CANTEEN</span>
-              <span className="mt-1.5 block text-[10px] font-medium tracking-[0.09em] text-muted">GOOD FOOD. GOOD DAY.</span>
+              <span className="mt-1.5 block text-[10px] font-medium tracking-[0.09em] text-muted">GOOD FOOD. WITHOUT THE WAIT.</span>
             </span>
           </Link>
 

@@ -68,7 +68,7 @@ const MenuItemCard = ({ item, index = 0 }) => {
               <button type="button" onClick={() => addItem(item)} aria-label={`Add one ${item.name}`} className="grid size-8 place-items-center rounded-lg text-forest transition hover:bg-white">
                 <Plus size={15} />
               </button>
-              <Check size={13} className="mr-1 text-forest/60" aria-hidden="true" />
+              {/* <Check size={13} className="mr-1 text-forest/60" aria-hidden="true" /> */}
             </div>
           )}
         </div>

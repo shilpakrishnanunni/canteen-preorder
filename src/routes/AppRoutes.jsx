@@ -1,5 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import MenuPage from "../pages/MenuPage.jsx";
+import CartPage from "../pages/student/CartPage.jsx";
+import CheckoutPage from "../pages/student/CheckoutPage.jsx";
+import OrderTrackingPage from "../pages/student/OrderTrackingPage.jsx";
 
 const PlaceholderPage = ({ title, description }) => (
   <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-16">
@@ -14,9 +17,9 @@ const AppRoutes = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<MenuPage />} />
-      <Route path="/cart" element={<PlaceholderPage title="Your cart" description="The cart page will be implemented next. Your selections are already saved in this browser." />} />
-      <Route path="/checkout" element={<PlaceholderPage title="Checkout" description="Checkout and order submission will be implemented next." />} />
-      <Route path="/orders/:orderToken" element={<PlaceholderPage title="Track your order" description="Order confirmation and live status details will be implemented next." />} />
+      <Route path="/cart" element={<CartPage />} />
+      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/orders/:orderToken" element={<OrderTrackingPage />} />
       <Route path="/login" element={<PlaceholderPage title="Staff sign in" description="Staff and admin authentication will be implemented after the student ordering flow." />} />
       <Route path="/staff" element={<PlaceholderPage title="Staff dashboard" description="Staff order management will be implemented in a later stage." />} />
       <Route path="/staff/menu" element={<PlaceholderPage title="Menu management" description="Staff menu management will be implemented in a later stage." />} />
