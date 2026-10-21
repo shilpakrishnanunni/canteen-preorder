@@ -6,17 +6,9 @@ import OrderTrackingPage from "../pages/student/OrderTrackingPage.jsx";
 import TrackOrderPage from "../pages/student/TrackOrderPage.jsx";
 import LoginPage from "../pages/auth/LoginPage.jsx";
 import StaffDashboard from "../pages/staff/StaffDashboard.jsx";
+import MenuManagementPage from "../pages/staff/MenuManagementPage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import { useAuth } from "../contexts/AuthContext.jsx";
-
-const PlaceholderPage = ({ title, description }) => (
-  <main className="mx-auto flex min-h-screen max-w-3xl flex-col justify-center px-6 py-16">
-    <p className="eyebrow">CANTEEN</p>
-    <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink">{title}</h1>
-    <p className="mt-3 max-w-xl text-base leading-7 text-muted">{description}</p>
-    <a href="/" className="mt-8 inline-flex w-fit items-center rounded-full bg-forest px-5 py-3 text-sm font-semibold text-white transition hover:bg-forest-dark">Back to menu</a>
-  </main>
-);
 
 const AdminLanding = () => {
   const { logout } = useAuth();
@@ -50,7 +42,7 @@ const AppRoutes = () => (
       } />
       <Route path="/staff/menu" element={
         <ProtectedRoute allowedRoles={["STAFF"]}>
-          <PlaceholderPage title="Menu management" description="Menu management is the next staff feature to implement." />
+          <MenuManagementPage />
         </ProtectedRoute>
       } />
       <Route path="/admin" element={

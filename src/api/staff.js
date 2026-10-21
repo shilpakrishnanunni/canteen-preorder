@@ -22,13 +22,13 @@ export const getStaffMenuItems = async () => {
   return response.data;
 };
 
-export const addMenuItem = async ({ category_id, name, description, price, image_url = null }) => {
+export const addMenuItem = async ({ categoryId, name, description, price, imageUrl = null }) => {
   const response = await api.post("/staff/addMenuItem", {
-    category_id,
+    categoryId,
     name,
     description,
     price,
-    image_url,
+    imageUrl,
   });
   return response.data;
 };
@@ -38,13 +38,13 @@ export const deleteMenuItem = async (menuItemId) => {
   return response.data;
 };
 
-export const updateMenuItem = async ({ menuItemId, name, description, price, image_url = null, available }) => {
+export const updateMenuItem = async ({ menuItemId, name, description, price, imageUrl = null, available }) => {
   const response = await api.put("/staff/updateMenuItem", {
     menuItemId,
     name,
     description,
     price,
-    image_url,
+    imageUrl,
     available,
   });
   return response.data;
